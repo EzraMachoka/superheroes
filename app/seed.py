@@ -1,19 +1,18 @@
-# Importing necessary modules
 from models import db, Hero, Power, HeroPower
 from random import choice
 from app import create_app
 from datetime import datetime
 
-# Create the Flask app
+
 app = create_app()
 
-# Use the app context to interact with the database
+
 with app.app_context():
-    # Step 1: Check if tables exist, if not, create them
+    
     db.create_all()
     
 
-    # Step 2: Seeding powers
+    
     print("🦸‍♀️ Seeding powers...")
     powers_data = [
         {"name": "Super Strength", "description": "Gives immense physical strength", "created_at": datetime.utcnow(), "updated_at": datetime.utcnow()},
@@ -28,7 +27,7 @@ with app.app_context():
 
     db.session.commit()
 
-    # Step 3: Seeding heroes
+    
     print("🦸‍♀️ Seeding heroes...")
     heroes_data = [
         {"name": "Kamala Khan", "super_name": "Ms. Marvel", "created_at": datetime.utcnow(), "updated_at": datetime.utcnow()},
@@ -49,7 +48,7 @@ with app.app_context():
 
     db.session.commit()
 
-    # Step 4: Adding powers to heroes
+    
     print("🦸‍♀️ Adding powers to heroes...")
 
     strengths = ["Strong", "Weak", "Average"]

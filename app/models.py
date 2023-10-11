@@ -13,7 +13,7 @@ class Hero(db.Model):
     created_at = db.Column(DateTime, nullable=False, default=lambda: datetime.utcnow())
     updated_at = db.Column(DateTime, nullable=False, default=lambda: datetime.utcnow())
 
-    # Relationship with HeroPower
+    
     powers = db.relationship('HeroPower', backref='hero', lazy=True)
 
 class Power(db.Model):
@@ -25,7 +25,7 @@ class Power(db.Model):
     created_at = db.Column(DateTime, nullable=False, default=lambda: datetime.utcnow())
     updated_at = db.Column(DateTime, nullable=False, default=lambda: datetime.utcnow())
 
-    # Relationship with HeroPower
+    
     heroes = db.relationship('HeroPower', backref='power', lazy=True)
 
 class HeroPower(db.Model):
